@@ -1,0 +1,134 @@
+[gd_scene load_steps=12 format=3 uid="uid://chdwxpjyr2tht"]
+
+[ext_resource type="Texture2D" uid="uid://bsapa1oeqvmks" path="res://Walls/Capture d’écran 2025-05-01 113452.png" id="1_mae5d"]
+[ext_resource type="Texture2D" uid="uid://bx7srtfm1tdy6" path="res://Bird/image-removebg-preview (1).png" id="2_4hy44"]
+[ext_resource type="Texture2D" uid="uid://7fm10lv2u5t0" path="res://Bird/BirdSprite.png" id="3_ytr4m"]
+[ext_resource type="FontFile" uid="uid://b2hcisd1ob6dv" path="res://Font/Uni Sans Heavy.otf" id="4_4hy44"]
+[ext_resource type="Script" uid="uid://dunrhi3vvn6fu" path="res://quit.gd" id="5_ytr4m"]
+
+[sub_resource type="GDScript" id="GDScript_4hy44"]
+script/source = "extends CharacterBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	get_node(\"AnimatedSprite2D\").play(\"Idle\")
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l48gv"]
+atlas = ExtResource("3_ytr4m")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecwwl"]
+atlas = ExtResource("3_ytr4m")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk3ma"]
+atlas = ExtResource("3_ytr4m")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nrnbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l48gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l48gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l48gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecwwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk3ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk3ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk3ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk3ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk3ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecwwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l48gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l48gv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_l48gv"]
+script/source = "extends Button
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://world.tscn\")
+"
+
+[node name="Menu" type="Node2D"]
+
+[node name="CaptureD’écran2025-05-01113452" type="Sprite2D" parent="."]
+position = Vector2(692, 332)
+scale = Vector2(7.476, -1.32923)
+texture = ExtResource("1_mae5d")
+
+[node name="Image-removebg-preview(1)" type="Sprite2D" parent="."]
+position = Vector2(1049, 487)
+scale = Vector2(1.36307, 1.375)
+texture = ExtResource("2_4hy44")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(280, 195)
+script = SubResource("GDScript_4hy44")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(711, 129)
+scale = Vector2(6.07, 6.07)
+sprite_frames = SubResource("SpriteFrames_nrnbx")
+animation = &"Idle"
+
+[node name="Play" type="Button" parent="Player/AnimatedSprite2D"]
+offset_left = -124.547
+offset_top = -33.9374
+offset_right = -78.5469
+offset_bottom = -2.9374
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 16
+text = "Play"
+flat = true
+icon_alignment = 1
+script = SubResource("GDScript_l48gv")
+
+[node name="Quit" type="Button" parent="Player/AnimatedSprite2D"]
+offset_left = -124.876
+offset_top = 1.15321
+offset_right = -78.8764
+offset_bottom = 32.1532
+theme_override_fonts/font = ExtResource("4_4hy44")
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+flat = true
+icon_alignment = 1
+script = ExtResource("5_ytr4m")
+
+[connection signal="pressed" from="Player/AnimatedSprite2D/Play" to="Player/AnimatedSprite2D/Play" method="_on_pressed"]
+[connection signal="pressed" from="Player/AnimatedSprite2D/Quit" to="Player/AnimatedSprite2D/Quit" method="_on_pressed"]

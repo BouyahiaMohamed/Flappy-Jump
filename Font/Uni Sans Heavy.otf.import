@@ -1,0 +1,41 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://b2hcisd1ob6dv"
+path="res://.godot/imported/Uni Sans Heavy.otf-92a8bc9a4d2762673f21ca7963125f3c.fontdata"
+
+[deps]
+
+source_file="res://Font/Uni Sans Heavy.otf"
+dest_files=["res://.godot/imported/Uni Sans Heavy.otf-92a8bc9a4d2762673f21ca7963125f3c.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=true
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=true
+msdf_pixel_range=55
+msdf_size=35
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=0
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0),
+&"variation_embolden": 0.0
+}]
+language_support={}
+script_support={}
+opentype_features={}
